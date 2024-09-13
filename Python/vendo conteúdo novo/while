@@ -1,0 +1,30 @@
+print("Cadastro:")
+user = str(input("Digite um nome de usuário: "))
+pw = str(input("Digite uma senha: "))
+cpw = str(input("Confirme a senha: "))
+while cpw != pw:
+    print("As senhas não são iguais")
+    cpw = str(input("confirme a SENHA: "))
+user = user
+pw = cpw
+print("Cadastro realizado com sucesso!")
+print("Login: ")
+loguser = str(input("Digite seu usuário: "))
+dpw = str(input("Digite sua senha: "))
+tentat = int(3)
+while loguser != user and dpw != pw or tentat == 0:
+    if loguser != user and dpw != pw:
+        tentat = tentat - 1
+        if tentat <= 0:
+            print("Usuário ou senha incorreto(s)")
+            break
+        else:
+            print("Usuário ou senha incorreto(s), tente novamente \n")
+            loguser = str(input("Digite seu usuário: "))
+            dpw = str(input("Digite sua senha: "))
+    print (tentat)
+if user == loguser and pw == dpw:
+    print("Login realizado com sucesso")
+else:
+    if user != loguser and pw != dpw:
+        print("ACESSO NEGADO! \nUsuário bloqueado")
